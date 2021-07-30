@@ -1,0 +1,33 @@
+$initialNotificationMaxHeight: 97px; // Should be same as antd notification
+$expandedNotificationMaxHeight: 480px;
+
+$initialNotificationMaxWidth: 384px; // Should be same as antd notification
+$expandedNotificationMaxWidth: 640px;
+
+$notificationResizeDuration: 0.75s;
+
+@keyframes increaseNotificationSize {
+    from { width: $initialNotificationMaxWidth; max-height: $initialNotificationMaxHeight; }
+    to { width: $expandedNotificationMaxWidth; max-height: $expandedNotificationMaxHeight; }
+}
+
+@keyframes decreateNotificationSize {
+    from { width: $expandedNotificationMaxWidth; max-height: $expandedNotificationMaxHeight; }
+    to { width: $initialNotificationMaxWidth; max-height: $initialNotificationMaxHeight; }
+}
+
+.increase-notif {
+    animation-name: increaseNotificationSize;
+    animation-duration: $notificationResizeDuration;
+    animation-fill-mode: forwards;
+}
+
+.decrease-notif {
+    animation-name: decreateNotificationSize;
+    animation-duration: $notificationResizeDuration;
+    animation-fill-mode: forwards;
+}
+
+.initial-notif {
+    max-height: $initialNotificationMaxHeight !important;
+}
